@@ -1,0 +1,73 @@
+/* 全体のフォント、背景色、パディング、ボックスサイズを設定 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* ヘッダーメニューをナビゲーションバー風に設定 */
+#menu {
+    background-color: #333;
+    overflow: hidden;
+}
+
+#menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+#menu ul li {
+    display: inline;
+}
+
+#menu ul li a {
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    border-radius: 12px;
+}
+
+/* ホバー時と現在のページを強調表示 */
+#menu ul li a:hover, #menu ul li a.current {
+    background-color: #04AA6D;
+    color: white;
+}
+
+/* ヘッダー部分にタイトルスタイルを適用 */
+h2 {
+    text-align: center;
+    padding: 20px;
+    background-color: #04AA6D;
+    color: white;
+    border-radius: 12px;
+    margin: 20px;
+}
+
+/* コンテンツ部分の装飾 */
+.belt {
+    background-color: #130e1e;
+    color: white;
+    padding: 10px;
+    border-radius: 12px;
+    margin: 20px;
+}
+
+/* フッター部分の装飾 */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    clear: both;
+    border-radius: 12px;
+    margin: 20px;
+}
