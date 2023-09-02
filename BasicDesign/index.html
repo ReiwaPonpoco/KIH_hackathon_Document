@@ -4,9 +4,9 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="description" content="プロジェクトの要求仕様書">
-	<meta name="keywords" content="Okabe Tatsunori,Aoki Atsushi,web,Program,Programmer">
-	<meta name="author" content="Okabe Tatsunori,Aoki Atsushi">
-	<meta name="name" content="令和ぽんぽこ">
+	<meta name="keywords" content="Okabe Tatsunori,web,Program,Programmer">
+	<meta name="author" content="Okabe Tatsunori">
+	<meta name="name" content="開発チーム名">
 	<link rel="index" href="index.html">
 	<link rel="icon" href="../favicon.ico">
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
@@ -30,116 +30,230 @@
 		</ul>
 	</div>
 	<hr>
-	<h2>ソフトウェア開発基本設計書</h2>
-	<div class="belt">
-		<ul>
-			<li><a href="#BD00">クラス図</a></li>
-			<li><a href="#BD01">状態遷移図</a></li>
-			<li><a href="#BD02">データフロー図(DFD)</a></li>
-			<li><a href="#BD03">シーケンス図</a></li>
-			<li><a href="#BD04">外観図</a></li>
-		</ul>
-	</div>
-	
-	<div class="belt">
-		<h3><a name="BD00">クラス図</a></h3>
-	</div>
-	<table summary="table">
-		<tbody>
+	<div class="contents">
+		<h2>ソフトウェア開発基本設計書</h2>
+		<div class="belt">
+			<ul>
+				<li><a href="#BD00">コンポーネントツリー図</a></li>
+				<li><a href="#BD01">データベーススキーマ & ER図</a></li>
+				<li><a href="#BD02">シーケンス図</a></li>
+				<li><a href="#BD03">ワイヤーフレーム図</a></li>
+				<li><a href="#BD04">クラス図</a></li>
+			</ul>
+		</div>
+
+		<div class="belt">
+			<h3><a name="BD00">ディレクトリ構成イメージ図</a></h3>
+			<h6>html/を用意してページまとめるのは全然あり</h6>
+		</div>
+		<p>
+			<ul>
+				<li><code>my_project/</code>
+					<ul>
+						<li><code>index.html</code> - ルートページ</li>
+						<li><code>ar_app.html</code> - ARアプリケーションのメインページ</li>
+						<li><code>css/</code>
+							<ul>
+								<li><code>styles.css</code> - 共通のスタイルシート</li>
+							</ul>
+						</li>
+						<li><code>js/</code>
+							<ul>
+								<li><code>main.js</code> - 共通のJavaScript</li>
+								<li><code>ar_app.js</code> - ARアプリケーション専用のJavaScript</li>
+							</ul>
+						</li>
+						<li><code>assets/</code>
+							<ul>
+								<li><code>images/</code> - 画像ファイル</li>
+								<li><code>models/</code> - 3Dモデルなど</li>
+							</ul>
+						</li>
+						<li><code>README.md</code> - プロジェクトの説明</li>
+					</ul>
+				</li>
+			</ul>
+		</p>
+
+
+		<div class="belt">
+			<h3><a name="BD01">データベーススキーマ & ER図</a></h3>
+			<h6>あくまで必要そうなものを書いただけ</h6>
+		</div>
+		<strong>Users Table</strong>
+		<table border="1">
 			<tr>
-				<td>
-					<table class="content" summary="table">
-						<tbody>
-							<tr>
-								<td class="center-small"><a href="images/unknown.png"><img class="borderless" src="thumbnails/unknown.png"
-											alt="クラス図のダウンロード"></a></td>
-							</tr>
-						</tbody>
-					</table>
-				</td>
+				<th>Field</th>
+				<th>Description</th>
 			</tr>
-		</tbody>
-	</table>
-	
-	<div class="belt">
-		<h3><a name="BD01">状態遷移図</a></h3>
-	</div>
-	<table summary="table">
-		<tbody>
 			<tr>
-				<td>
-					<table class="content" summary="table">
-						<tbody>
-							<tr>
-								<td class="center-small"><a href="images/unknown.png"><img class="borderless" src="thumbnails/unknown.png"
-											alt="状態遷移図のダウンロード"></a></td>
-							</tr>
-						</tbody>
-					</table>
-				</td>
+				<td>user_id</td>
+				<td>ユーザーの一意のID</td>
 			</tr>
-		</tbody>
-	</table>
-	
-	<div class="belt">
-		<h3><a name="BD02">データフロー図</a>(DFD)</h3>
-	</div>
-	<table summary="table">
-		<tbody>
 			<tr>
-				<td>
-					<table class="content" summary="table">
-						<tbody>
-							<tr>
-								<td class="center-small"><a href="images/unknown.png"><img class="borderless" src="thumbnails/unknown.png"
-											alt="データフロー図のダウンロード"></a></td>
-							</tr>
-						</tbody>
-					</table>
-				</td>
+				<td>username</td>
+				<td>ユーザー名</td>
 			</tr>
-		</tbody>
-	</table>
-	
-	<div class="belt">
-		<h3><a name="BD03">シーケンス図</a></h3>
-	</div>
-	<table summary="table">
-		<tbody>
 			<tr>
-				<td>
-					<table class="content" summary="table">
-						<tbody>
-							<tr>
-								<td class="center-small"><a href="images/unknown.png"><img class="borderless" src="thumbnails/unknown.png"
-											alt="シーケンス図のダウンロード"></a></td>
-							</tr>
-						</tbody>
-					</table>
-				</td>
+				<td>email</td>
+				<td>メールアドレス</td>
 			</tr>
-		</tbody>
-	</table>
-	
-	<div class="belt">
-		<h3><a name="BD04">外観図</a></h3>
-	</div>
-	<table summary="table">
-		<tbody>
 			<tr>
-				<td>
-					<table class="content" summary="table">
-						<tbody>
-							<tr>
-								<td class="center-small"><a href="images/unknown.png"><img class="borderless" src="thumbnails/unknown.png"
-											alt="外観図のダウンロード"></a></td>
-							</tr>
-						</tbody>
-					</table>
-				</td>
+				<td>password_hash</td>
+				<td>パスワードのハッシュ</td>
 			</tr>
-		</tbody>
-	</table>
+			<tr>
+				<td>language_preference</td>
+				<td>言語設定</td>
+			</tr>
+		</table>
+		</p>
+		
+		<p>
+			<strong>Locations Table</strong>
+		<table border="1">
+			<tr>
+				<th>Field</th>
+				<th>Description</th>
+			</tr>
+			<tr>
+				<td>location_id</td>
+				<td>場所の一意のID</td>
+			</tr>
+			<tr>
+				<td>name</td>
+				<td>場所の名前</td>
+			</tr>
+			<tr>
+				<td>latitude</td>
+				<td>緯度</td>
+			</tr>
+			<tr>
+				<td>longitude</td>
+				<td>経度</td>
+			</tr>
+			<tr>
+				<td>description</td>
+				<td>説明</td>
+			</tr>
+			<tr>
+				<td>category</td>
+				<td>カテゴリ（例：レストラン、観光地など）</td>
+			</tr>
+		</table>
+		</p>
+		
+		<p>
+			<strong>Favorites Table</strong>
+		<table border="1">
+			<tr>
+				<th>Field</th>
+				<th>Description</th>
+			</tr>
+			<tr>
+				<td>favorite_id</td>
+				<td>お気に入りの一意のID</td>
+			</tr>
+			<tr>
+				<td>user_id</td>
+				<td>ユーザーID（Users Tableと関連）</td>
+			</tr>
+			<tr>
+				<td>location_id</td>
+				<td>場所ID（Locations Tableと関連）</td>
+			</tr>
+		</table>
+		</p>
+
+		<table summary="table">
+			<tbody>
+				<tr>
+					<td>
+						<table class="content" summary="table">
+							<tbody>
+								<tr>
+									<td class="center-small"><a href="images/unknown.png"><img class="borderless"
+												src="thumbnails/unknown.png" alt="ER図のダウンロード"></a></td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div class="belt">
+			<h3><a name="BD02">シーケンス図</a></h3>
+		</div>
+		<table summary="table">
+			<tbody>
+				<tr>
+					<td>
+						<table class="content" summary="table">
+							<tbody>
+								<tr>
+									<td class="center-small"><a href="images/SequenceDiagram1.png"><img class="borderless"
+												src="thumbnails/SequenceDiagram1.png" width=80% alt="シーケンス図のダウンロード"></a></td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<table summary="table">
+			<tbody>
+				<tr>
+					<td>
+						<table class="content" summary="table">
+							<tbody>
+								<tr>
+									<td class="center-small"><a href="images/SequenceDiagram2.png"><img class="borderless"
+												src="thumbnails/SequenceDiagram2.png" width=80% alt="シーケンス図のダウンロード"></a></td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<table summary="table">
+			<tbody>
+				<tr>
+					<td>
+						<table class="content" summary="table">
+							<tbody>
+								<tr>
+									<td class="center-small"><a href="images/SequenceDiagram3.png"><img class="borderless"
+												src="thumbnails/SequenceDiagram3.png" width=80% alt="シーケンス図のダウンロード"></a></td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div class="belt">
+			<h3><a name="BD03">ワイヤーフレーム</a></h3>
+		</div>
+		ここにfigmaで作ったワイヤーフレームや外観図を置く
+		<table summary="table">
+			<tbody>
+				<tr>
+					<td>
+						<table class="content" summary="table">
+							<tbody>
+								<tr>
+									<td class="center-small"><a href="images/WireFrame.png"><img class="borderless"
+												src="thumbnails/WireFrame.png" alt="ワイヤーフレームのダウンロード"></a></td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
 
 	<footer>
 		<p>© 2023 令和ぽんぽこ. All rights reserved.</p>
