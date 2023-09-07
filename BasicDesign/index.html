@@ -44,41 +44,109 @@
 
 		<div class="belt">
 			<h3><a name="BD00">ディレクトリ構成イメージ図</a></h3>
-			<h6>html/を用意してページまとめるのは全然あり</h6>
+			<h6>簡単なイメージ</h6>
 		</div>
 		<p>
-			<ul>
-				<li><code>my_project/</code>
-					<ul>
-						<li><code>index.html</code> - ルートページ</li>
-						<li><code>ar_app.html</code> - ARアプリケーションのメインページ</li>
-						<li><code>css/</code>
-							<ul>
-								<li><code>styles.css</code> - 共通のスタイルシート</li>
-							</ul>
-						</li>
-						<li><code>js/</code>
-							<ul>
-								<li><code>main.js</code> - 共通のJavaScript</li>
-								<li><code>ar_app.js</code> - ARアプリケーション専用のJavaScript</li>
-							</ul>
-						</li>
-						<li><code>assets/</code>
-							<ul>
-								<li><code>images/</code> - 画像ファイル</li>
-								<li><code>models/</code> - 3Dモデルなど</li>
-							</ul>
-						</li>
-						<li><code>README.md</code> - プロジェクトの説明</li>
-					</ul>
-				</li>
-			</ul>
+		<ul>
+			<li><code>my_project/</code>
+				<ul>
+					<li><code>index.html</code> - ルートページ(ユーザ登録、ログイン)</li>
+					<li><code>functions/</code> - Firebaseプロジェクト (Cloud Functionsや設定など)</li>
+					<li><code>html/</code>
+						<ul>
+							<li><code>ar-app.html</code> - ARアプリケーションのメインページ</li>
+							<li><code>confirm.html</code> - 登録情報のポスト</li>
+							<li><code>home.html</code> - ARアプリまたは、お気に入りページに遷移するナビゲーションページ</li>
+							<li><code>favorite.html</code> - お気に入りをリストするページ</li>
+							<li><code>navigation.html</code> - お気に入り場所へナビゲーションするページ</li>
+						</ul>
+					</li>
+					<li><code>css/</code>
+						<ul>
+							<li><code>styles.css</code> - 共通のスタイルシート</li>
+							<li><code>responsive.css</code> - レスポンシブデザイン用のスタイル</li>
+						</ul>
+					</li>
+					<li><code>js/</code>
+						<ul>
+							<li><code>main.js</code> - 共通のJavaScript</li>
+							<li><code>ar-app.js</code> - ARアプリケーション専用のJavaScript</li>
+							<li><code>translate.js</code> - 翻訳を行うJavaScript</li>
+							<li><code>favorite-list.js</code> - Firebaseと連携してお気に入りリストをGETするJavaScript</li>
+							<li><code>navigation-to-favorite.js</code> - Googleマップにリダイレクトするか、地図の埋め込みを行うJavaScript</li>
+						</ul>
+					</li>
+					<li><code>libs/</code> - 外部ライブラリやフレームワーク</li>
+					<li><code>assets/</code>
+						<ul>
+							<li><code>images/</code> - 画像ファイル</li>
+							<li><code>models/</code> - 3Dモデルなど</li>
+						</ul>
+					</li>
+					<li><code>README.md</code> - プロジェクトの説明、セットアップ方法、使用技術などの詳細</li>
+				</ul>
+			</li>
+		</ul>
 		</p>
+
+		<hr>
+		<p>
+		<ul>
+			<li><code>my_project/(やる時間はないだろうけども、テストを考慮したとすると...)</code>
+				<ul>
+					<li><code>index.html</code> - ルートページ(ユーザ登録、ログイン)</li>
+					<li><code>functions/</code> - Firebaseプロジェクト (Cloud Functionsや設定など)</li>
+					<li><code>html/</code>
+						<ul>
+							<li><code>ar-app.html</code> - ARアプリケーションのメインページ</li>
+							<li><code>confirm.html</code> - 登録情報のポスト</li>
+							<li><code>home.html</code> - ARアプリまたは、お気に入りページに遷移するナビゲーションページ</li>
+							<li><code>favorite.html</code> - お気に入りをリストするページ</li>
+							<li><code>navigation.html</code> - お気に入り場所へナビゲーションするページ</li>
+						</ul>
+					</li>
+					<li><code>css/</code>
+						<ul>
+							<li><code>styles.css</code> - 共通のスタイルシート</li>
+							<li><code>responsive.css</code> - レスポンシブデザイン用のスタイル</li>
+						</ul>
+					</li>
+					<li><code>js/</code>
+						<ul>
+							<li><code>main.js</code> - 共通のJavaScript</li>
+							<li><code>ar-app.js</code> - ARアプリケーション専用のJavaScript</li>
+							<li><code>translate.js</code> - 翻訳を行うJavaScript</li>
+							<li><code>favorite-list.js</code> - Firebaseと連携してリストをGETするJavaScript</li>
+							<li><code>navigation-to-favorite.js</code> - Googleマップにリダイレクトするか、地図の埋め込みを行うJavaScript</li>
+						</ul>
+					</li>
+					<li><code>tests/</code>
+						<ul>
+							<li><code>unit/</code> - 単体テスト関連のファイル</li>
+							<li><code>integration/</code> - 統合テスト関連のファイル</li>
+							<li><code>ui/</code> - UI/UXテスト関連のファイル</li>
+							<li><code>performance/</code> - パフォーマンステスト関連のファイル</li>
+							<li><code>security/</code> - セキュリティテスト関連のファイル</li>
+						</ul>
+					</li>
+					<li><code>libs/</code> - 外部ライブラリやフレームワーク</li>
+					<li><code>assets/</code>
+						<ul>
+							<li><code>images/</code> - 画像ファイル</li>
+							<li><code>models/</code> - 3Dモデルなど</li>
+						</ul>
+					</li>
+					<li><code>README.md</code> - プロジェクトの説明、セットアップ方法、使用技術などの詳細</li>
+				</ul>
+			</li>
+		</ul>
+		</p>
+
 
 
 		<div class="belt">
 			<h3><a name="BD01">データベーススキーマ & ER図</a></h3>
-			<h6>あくまで必要そうなものを書いただけ</h6>
+			<h6>Firebaseを想定すると楽</h6>
 		</div>
 		<strong>Users Table</strong>
 		<table border="1">
@@ -88,82 +156,40 @@
 			</tr>
 			<tr>
 				<td>user_id</td>
-				<td>ユーザーの一意のID</td>
-			</tr>
-			<tr>
-				<td>username</td>
-				<td>ユーザー名</td>
+				<td>ユーザーID</td>
 			</tr>
 			<tr>
 				<td>email</td>
 				<td>メールアドレス</td>
 			</tr>
-			<tr>
-				<td>password_hash</td>
-				<td>パスワードのハッシュ</td>
-			</tr>
-			<tr>
-				<td>language_preference</td>
-				<td>言語設定</td>
-			</tr>
 		</table>
-		</p>
+		<p>Firebase Authenticationが管理</p>
 		
-		<p>
-			<strong>Locations Table</strong>
+		<strong>Favorites Table</strong>
 		<table border="1">
 			<tr>
 				<th>Field</th>
 				<th>Description</th>
 			</tr>
 			<tr>
-				<td>location_id</td>
-				<td>場所の一意のID</td>
+				<td>favorite_place_id</td>
+				<td>お気に入りの場所の一意のPlaceIDまたはURL</td>
 			</tr>
 			<tr>
-				<td>name</td>
-				<td>場所の名前</td>
+				<td>place_name</td>
+				<td>お気に入りの場所の名前</td>
 			</tr>
 			<tr>
-				<td>latitude</td>
-				<td>緯度</td>
-			</tr>
-			<tr>
-				<td>longitude</td>
-				<td>経度</td>
-			</tr>
-			<tr>
-				<td>description</td>
-				<td>説明</td>
-			</tr>
-			<tr>
-				<td>category</td>
-				<td>カテゴリ（例：レストラン、観光地など）</td>
-			</tr>
-		</table>
-		</p>
-		
-		<p>
-			<strong>Favorites Table</strong>
-		<table border="1">
-			<tr>
-				<th>Field</th>
-				<th>Description</th>
-			</tr>
-			<tr>
-				<td>favorite_id</td>
-				<td>お気に入りの一意のID</td>
+				<td>favorite_description</td>
+				<td>お気に入りの場所の説明</td>
 			</tr>
 			<tr>
 				<td>user_id</td>
 				<td>ユーザーID（Users Tableと関連）</td>
 			</tr>
-			<tr>
-				<td>location_id</td>
-				<td>場所ID（Locations Tableと関連）</td>
-			</tr>
 		</table>
-		</p>
+		<p>Firebase FireStoreで管理</p>
+
 
 		<table summary="table">
 			<tbody>

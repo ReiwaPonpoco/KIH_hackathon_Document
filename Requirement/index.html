@@ -74,9 +74,41 @@
 	<p>
 		開発に関わるドキュメントおよびプログラムをGitHubからアクセス可能にすること。 また、アプリケーションの取り扱いを説明したマニュアルも作成すること。
 		ユーザーフレンドリーかつ直感的なUI/UXを提供。
-		Google Mapsやその他の地図APIと連携し、正確な位置情報を利用。
+		Google Maps API(Place API)やその他の地図APIと連携し、正確な位置情報を利用。
 		多言語対応で、日本語が不得意なユーザーにも使いやすい。
 	</p>
+	<!-- 設計方針 -->
+	<h4><a name="SekkeiHoushin">設計方針</a></h4>
+	<p>
+		各機能（AR表示、場所のお気に入り登録、翻訳など）は独立したモジュールとして設計します。JavaScriptファイルは機能ごとに分割し、関連する機能やデータをまとめてクラスや関数として組織化します。Firebaseの機能を最大限に活用し、スケーラブルで効率的なデータベース構造を目指します。
+	</p>
+	
+	<!-- 管理方針 -->
+	<h4><a name="KanriHoushin">管理方針</a></h4>
+	<p>
+		GitHubを使用してソースコードのバージョン管理を行います。主要な機能追加やバグ修正ごとにブランチを作成し、Pull Request (PR)
+		を通じて変更をレビューし、問題がなければマージを行います。開発に関する全てのドキュメントは一元管理し、チームメンバーが容易にアクセスできるようにします。
+	</p>
+	
+	<!-- 実装方針 -->
+	<h4><a name="JissouHoushin">実装方針</a></h4>
+	<p>
+		セマンティックなマークアップを心掛け、CSSは再利用可能なクラスを作成し、モジュールごとにスタイルを分割します。ESLintやPrettierのようなツールを使用して、コードの品質と統一性を保ちます。Aframe,
+		AR.jsをAR表示の核として使用し、Google Maps APIやCloud Translate APIとの連携を強化します。
+	</p>
+	
+	<!-- テスト方針 -->
+	<h4><a name="TestHoushin">テスト方針</a></h4>
+	<p>
+		ユニットテスト、統合テスト、UIテストを実施します。JestやMochaのようなJavaScriptのテストフレームワークを導入します。JestやMochaといったテストフレームワークのカバレッジツールを使用して、どの部分のコードがテストでカバーされているかを確認します。主要な機能に対しては高いテストカバレッジを目指します。
+	</p>
+	
+	<!-- リリース方針 -->
+	<h4><a name="ReleaseHoushin">リリース方針</a></h4>
+	<p>
+		初期段階では頻繁にアップデートをリリースし、ユーザーフィードバックを取り入れます。安定してきたら、リリースの間隔を延ばします。GitHub Pagesの設定を利用して、mainブランチに変更があるたびに自動でデプロイされるようにします。
+	</p>
+
 	<div class="belt">
 		<h3><a name="KihonYouken">基本要件</a></h3>
 	</div>
@@ -112,11 +144,11 @@
 		</tr>
 		<tr>
 			<td>ユーザ登録</td>
-			<td>Firebase Authenticationなどを使用してユーザ登録機能を実装。(できれば、他の技術を使ってやってみたい...)</td>
+			<td>Firebase Authenticationなどを使用してユーザ登録機能を実装。</td>
 		</tr>
 		<tr>
 			<td>お気に入り登録</td>
-			<td>Firebase FirestoreなどのNoSQLデータベースを使用して、ユーザーごとにお気に入りの場所を保存。(できれば、他の技術を使ってやってみたい...)</td>
+			<td>Firebase FirestoreなどのNoSQLデータベースを使用して、ユーザーごとにお気に入りの場所を保存。</td>
 		</tr>
 	</table>
 	<div class="belt">
@@ -130,29 +162,6 @@
 		<tr>
 			<td>方向案内</td>
 			<td>Google Maps Directions APIを使用して、現在地からお気に入りの場所までの最適なルートを計算。</td>
-		</tr>
-	</table>
-	<h4>技術要件</h4>
-	<table border="1">
-		<tr>
-			<th>技術</th>
-			<th>詳細</th>
-		</tr>
-		<tr>
-			<td>フロントエンド</td>
-			<td>HTML/CSS, JavaScript</td>
-		</tr>
-		<tr>
-			<td>ARライブラリ</td>
-			<td>aFrame, ar.js</td>
-		</tr>
-		<tr>
-			<td>地図API</td>
-			<td>Google Maps APIなど</td>
-		</tr>
-		<tr>
-			<td>バックエンド</td>
-			<td>未定</td>
 		</tr>
 	</table>
 
@@ -176,27 +185,75 @@
 	<div class="belt">
 		<h3><a name="HardwareKousei">ハードウェア構成</a></h3>
 	</div>
-	<p>ハードウェア構成をここに記述します。</p>
+	<p>
+		<ul>
+			<li>開発者のハードウェア: MacBook Pro (16-inch, 2019), 16GB RAM, 512GB SSD</li>
+			<li>システムのホスティング: Github Pages (フロントエンド), Firebase (バックエンド)</li>
+		</ul>
+	</p>
 	<div class="belt">
 		<h3><a name="SoftwareKousei">ソフトウェア構成</a></h3>
 	</div>
-	<p>ソフトウェア構成をここに記述します。</p>
+	<p>
+		<ul>
+			<li>フロントエンド: HTML/CSS, JavaScript, aframe, ar.js</li>
+			<li>バックエンド: Firebase (Authentication, Firestore)</li>
+			<li>API: Google Maps Place API, Google Maps Directions API, Cloud Translate API</li>
+		</ul>
+	</p>
 	<div class="belt">
 		<h3><a name="MokuhyouToSeinou">目標と性能</a></h3>
 	</div>
-	<p>目標と性能をここに記述します。</p>
+	<p>
+		<ul>
+			<li>目標: ユーザーがARを通じて周囲の情報を簡単に確認し、お気に入りの場所を登録・ナビゲートできるWebアプリケーションの開発</li>
+			<li>性能: 応答時間 2秒以内, 同時ユーザー数 1000人</li>
+		</ul>
+	</p>
 	<div class="belt">
 		<h3><a name="SeigenJikou">制限事項</a></h3>
 	</div>
-	<p>制限事項をここに記述します。</p>
+	<p>
+		<ul>
+			<li>使用APIの料金制限やクエリ制限</li>
+			<li>サポートするブラウザやバージョン</li>
+			<li>AR機能は特定の端末やブラウザでのみ動作</li>
+		</ul>
+	</p>
 	<div class="belt">
 		<h3><a name="KaihatsuTaisei">開発体制</a></h3>
 	</div>
-	<p>開発体制についてここに記述します。</p>
+	<p>
+		<ul>
+			<li>プロジェクトリーダー (PL): 1人</li>
+			<li>フロントエンドエンジニア (FE): 2人</li>
+			<li>バックエンドエンジニア (BE): 1人</li>
+			<li>デザイナー: 1人</li>
+		</ul>
+	</p>
 	<div class="belt">
 		<h3><a name="KaihatsuSchedule">開発スケジュール</a></h3>
 	</div>
-	<p>開発スケジュールについてここに記述します。</p>
+	<p>
+		例えば...
+		<ul>
+			<li>1日目:</li>
+			<ul>
+				<li>バックエンドのセットアップ (Firebase Authentication, Firestoreのデータモデル定義)</li>
+				<li>APIとの連携テスト</li>
+			</ul>
+			<li>2日目:</li>
+			<ul>
+				<li>フロントエンドとバックエンドの統合</li>
+				<li>AR表示の最適化</li>
+			</ul>
+			<li>3日目:</li>
+			<ul>
+				<li>テストとバグ修正</li>
+				<li>デプロイ</li>
+			</ul>
+		</ul>
+	</p>
 	<footer>
 		<p>© 2023 令和ぽんぽこ. All rights reserved.</p>
 	</footer>
