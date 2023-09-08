@@ -32,51 +32,160 @@
 	<h2>ソフトウェア開発詳細設計書</h2>
 	<div class="belt">
 		<ul>
-			<li><a href="#BD00">詳細クラス図「A」</a></li>
-			<li><a href="#BD01">詳細クラス図「B」</a></li>
-			<li><a href="#BD02">詳細クラス図「C」</a></li>
+			<li><a href="#BD00">バックエンド設計</a></li>
+			<li><a href="#BD01">フロントエンド設計</a></li>
+			<li><a href="#BD02">状態遷移図</a></li>
 		</ul>
 	</div>
 	<div class="belt">
-		<h3><a name="BD00">詳細クラス図</a>「A」</h3>
+		<h3><a name="BD00">バックエンド設計</a></h3>
+		<p>Firebase Functionsを利用する</p>
 	</div>
-	<table summary="table">
-		<tbody>
-			<tr>
-				<td>
-					<table class="content" summary="table">
-						<tbody>
-							<tr>
-								<td class="center-small"><a href="images/unknown.png"><img class="borderless"
-											src="thumbnails/unknown.png" width="597" height="295" alt="Aの詳細クラス図のダウンロード"></a></td>
-							</tr>
-						</tbody>
-					</table>
-				</td>
-			</tr>
-		</tbody>
-	</table>
+	<h4>1. 周辺の情報を取得するエンドポイント</h4>
+	<ul>
+		<li>メソッド: GET</li>
+		<li>パス: /getPlaces</li>
+		<li>入力: 緯度、経度</li>
+		<li>動作:
+			<ul>
+				<li>Google Maps Places APIを呼び出し</li>
+				<li>位置情報の周辺の情報を取得</li>
+			</ul>
+		</li>
+		<li>出力: 周辺の情報のリスト</li>
+	</ul>
+	
+	<h4>2. コンテンツ翻訳エンドポイント</h4>
+	<ul>
+		<li>メソッド: POST</li>
+		<li>パス: /translateContent</li>
+		<li>入力: 翻訳するコンテンツ、翻訳先の言語</li>
+		<li>動作:
+			<ul>
+				<li>Google Cloud Translate APIを呼び出し</li>
+				<li>コンテンツを指定された言語に翻訳</li>
+			</ul>
+		</li>
+		<li>出力: 翻訳されたコンテンツ</li>
+	</ul>
+	
+	<h4>3. 最適なルートを取得するエンドポイント</h4>
+	<ul>
+		<li>メソッド: GET/POST (具体的な方法による)</li>
+		<li>パス: /getOptimalRoute (または適切な名前)</li>
+		<li>入力: 現在地、目的地</li>
+		<li>動作:
+			<ul>
+				<li>適切なAPIまたはライブラリを利用してルート情報を取得</li>
+			</ul>
+		</li>
+		<li>出力: 最適なルート情報</li>
+	</ul>
+
 	<div class="belt">
-		<h3><a name="BD01">詳細クラス図</a>「B」</h3>
+		<h3><a name="BD01">フロントエンド設計</a></h3>
 	</div>
-	<table summary="table">
-		<tbody>
-			<tr>
-				<td>
-					<table class="content" summary="table">
-						<tbody>
-							<tr>
-								<td class="center-small"><a href="images/unknown.png"><img class="borderless"
-											src="thumbnails/unknown.png" width="546" height="286" alt="Bの詳細クラス図のダウンロード"></a></td>
-							</tr>
-						</tbody>
-					</table>
-				</td>
-			</tr>
-		</tbody>
-	</table>
+	
+	<h4>index.html (ルートページ)</h4>
+	<p>
+		<strong>機能:</strong>
+	<ul>
+		<li>言語の選択</li>
+		<li>ユーザ登録へのリンク</li>
+		<li>ログインへのリンク</li>
+	</ul>
+	<strong>処理:</strong>
+	<ul>
+		<li>言語設定の保存 (localStorageなどを使用)</li>
+		<li>ページの翻訳</li>
+	</ul>
+	</p>
+	
+	<h4>ar-app.html (ARアプリケーションのメインページ)</h4>
+	<p>
+		<strong>機能:</strong>
+	<ul>
+		<li>カメラ起動</li>
+		<li>ARコンテンツの表示</li>
+		<li>現在地の表示</li>
+	</ul>
+	<strong>処理:</strong>
+	<ul>
+		<li>カメラのアクセス許可</li>
+		<li>ARコンテンツのレンダリング</li>
+		<li>ページの翻訳</li>
+	</ul>
+	</p>
+	
+	<h4>signup.html (ユーザ登録ページ)</h4>
+	<p>
+		<strong>機能:</strong>
+	<ul>
+		<li>ユーザ情報の入力 (メールアドレス, パスワード)</li>
+		<li>登録ボタン</li>
+	</ul>
+	<strong>処理:</strong>
+	<ul>
+		<li>Firebase Authenticationを利用したユーザ登録</li>
+		<li>ページの翻訳</li>
+	</ul>
+	</p>
+	
+	<h4>login.html (ユーザログインページ)</h4>
+	<p>
+		<strong>機能:</strong>
+	<ul>
+		<li>メールアドレスとパスワードの入力</li>
+		<li>ログインボタン</li>
+	</ul>
+	<strong>処理:</strong>
+	<ul>
+		<li>Firebase Authenticationを利用したユーザログイン</li>
+		<li>ページの翻訳</li>
+	</ul>
+	</p>
+	
+	<h4>home.html (ナビゲーションページ)</h4>
+	<p>
+		<strong>機能:</strong>
+	<ul>
+		<li>ARアプリケーション起動ボタン</li>
+		<li>お気に入りページへのリンク</li>
+	</ul>
+	<strong>処理:</strong>
+	<ul>
+		<li>ページの翻訳</li>
+	</ul>
+	</p>
+	
+	<h4>favorite.html (お気に入りリストページ)</h4>
+	<p>
+		<strong>機能:</strong>
+	<ul>
+		<li>お気に入りの場所リスト表示</li>
+	</ul>
+	<strong>処理:</strong>
+	<ul>
+		<li>Firebaseからお気に入りデータの取得</li>
+		<li>ページの翻訳</li>
+	</ul>
+	</p>
+	
+	<h4>navigation.html (ナビゲーションページ)</h4>
+	<p>
+		<strong>機能:</strong>
+	<ul>
+		<li>現在地から選択したお気に入りの場所へのルート表示</li>
+	</ul>
+	<strong>処理:</strong>
+	<ul>
+		<li>Google Maps APIを利用したルート取得</li>
+		<li>ページの翻訳</li>
+	</ul>
+	</p>
+
 	<div class="belt">
-		<h3><a name="BD02">詳細クラス図</a>「C」</h3>
+		<h3><a name="BD02">状態遷移図</a>「C」</h3>
 	</div>
 	<table summary="table">
 		<tbody>

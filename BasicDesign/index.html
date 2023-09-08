@@ -29,65 +29,65 @@
 			<li><a href="../Manual/index.html">マニュアル</a></li>
 		</ul>
 	</div>
-	<hr>
-	<div class="contents">
-		<h2>ソフトウェア開発基本設計書</h2>
-		<div class="belt">
-			<ul>
-				<li><a href="#BD00">コンポーネントツリー図</a></li>
-				<li><a href="#BD01">データベーススキーマ & ER図</a></li>
-				<li><a href="#BD02">シーケンス図</a></li>
-				<li><a href="#BD03">ワイヤーフレーム図</a></li>
-				<li><a href="#BD04">クラス図</a></li>
-			</ul>
-		</div>
-
-		<div class="belt">
-			<h3><a name="BD00">ディレクトリ構成イメージ図</a></h3>
-			<h6>簡単なイメージ</h6>
-		</div>
-		<p>
+	<div class="belt">
 		<ul>
-			<li><code>my_project/</code>
-				<ul>
-					<li><code>index.html</code> - ルートページ(ユーザ登録、ログイン)</li>
-					<li><code>functions/</code> - Firebaseプロジェクト (Cloud Functionsや設定など)</li>
-					<li><code>html/</code>
-						<ul>
-							<li><code>ar-app.html</code> - ARアプリケーションのメインページ</li>
-							<li><code>confirm.html</code> - 登録情報のポスト</li>
-							<li><code>home.html</code> - ARアプリまたは、お気に入りページに遷移するナビゲーションページ</li>
-							<li><code>favorite.html</code> - お気に入りをリストするページ</li>
-							<li><code>navigation.html</code> - お気に入り場所へナビゲーションするページ</li>
-						</ul>
-					</li>
-					<li><code>css/</code>
-						<ul>
-							<li><code>styles.css</code> - 共通のスタイルシート</li>
-							<li><code>responsive.css</code> - レスポンシブデザイン用のスタイル</li>
-						</ul>
-					</li>
-					<li><code>js/</code>
-						<ul>
-							<li><code>main.js</code> - 共通のJavaScript</li>
-							<li><code>ar-app.js</code> - ARアプリケーション専用のJavaScript</li>
-							<li><code>translate.js</code> - 翻訳を行うJavaScript</li>
-							<li><code>favorite-list.js</code> - Firebaseと連携してお気に入りリストをGETするJavaScript</li>
-							<li><code>navigation-to-favorite.js</code> - Googleマップにリダイレクトするか、地図の埋め込みを行うJavaScript</li>
-						</ul>
-					</li>
-					<li><code>libs/</code> - 外部ライブラリやフレームワーク</li>
-					<li><code>assets/</code>
-						<ul>
-							<li><code>images/</code> - 画像ファイル</li>
-							<li><code>models/</code> - 3Dモデルなど</li>
-						</ul>
-					</li>
-					<li><code>README.md</code> - プロジェクトの説明、セットアップ方法、使用技術などの詳細</li>
-				</ul>
-			</li>
+			<li><a href="#BD00">ディレクトリ構成イメージ図</a></li>
+			<li><a href="#BD01">HTMLとJavaScriptの関係</a></li>
+			<li><a href="#BD02">データベーススキーマ</a></li>
+			<li><a href="#BD03">シーケンス図</a></li>
+			<li><a href="#BD04">ワイヤーフレーム</a></li>
 		</ul>
-		</p>
+	</div>
+	<hr>
+	<div class="belt">
+		<h3><a name="BD00">ディレクトリ構成イメージ図</a></h3>
+		<h6>簡単なイメージ</h6>
+	</div>
+	<p>
+	<ul>
+		<li><code>my-project/</code>
+			<ul>
+				<li><code>index.html</code> - ルートページ(ユーザ登録、ログイン)</li>
+				<li><code>functions/</code> - Firebaseプロジェクト (Cloud Functionsや設定など)</li>
+				<li><code>html/</code>
+					<ul>
+						<li><code>ar-app.html</code> - ARアプリケーションのメインページ</li>
+						<li><code>signup.html</code> - ユーザ登録ページ</li>
+						<li><code>login.html</code> - ユーザログインページ</li>
+						<li><code>home.html</code> - ARアプリまたは、お気に入りページに遷移するナビゲーションページ</li>
+						<li><code>favorite.html</code> - お気に入りをリストするページ</li>
+						<li><code>navigation.html</code> - お気に入り場所へナビゲーションするページ</li>
+					</ul>
+				</li>
+				<li><code>css/</code>
+					<ul>
+						<li><code>styles.css</code> - 共通のスタイルシート</li>
+						<li><code>responsive.css</code> - レスポンシブデザイン用のスタイル</li>
+					</ul>
+				</li>
+				<li><code>js/</code>
+					<ul>
+						<li><code>main.js</code> - 共通のJavaScript</li>
+						<li><code>ar-app.js</code> - ARアプリケーション専用のJavaScript</li>
+						<li><code>translate.js</code> - 翻訳を行うJavaScript</li>
+						<li><code>favorite-list.js</code> - Firebaseと連携してお気に入りリストをGETするJavaScript</li>
+						<li><code>navigation-to-favorite.js</code> - Googleマップにリダイレクトするか、地図の埋め込みを行うJavaScript</li>
+						<li><code>signup.js</code> - ユーザ登録の処理を行うJavaScript</li>
+						<li><code>login.js</code> - ユーザログインの処理を行うJavaScript</li>
+					</ul>
+				</li>
+				<li><code>libs/</code> - 外部ライブラリやフレームワーク</li>
+				<li><code>assets/</code>
+					<ul>
+						<li><code>images/</code> - 画像ファイル</li>
+						<li><code>models/</code> - 3Dモデルなど</li>
+					</ul>
+				</li>
+				<li><code>README.md</code> - プロジェクトの説明、セットアップ方法、使用技術などの詳細</li>
+			</ul>
+		</li>
+	</ul>
+	</p>
 
 		<hr>
 		<p>
@@ -99,7 +99,8 @@
 					<li><code>html/</code>
 						<ul>
 							<li><code>ar-app.html</code> - ARアプリケーションのメインページ</li>
-							<li><code>confirm.html</code> - 登録情報のポスト</li>
+							<li><code>signup.html</code> - ユーザ登録ページ</li>
+							<li><code>login.html</code> - ユーザログインページ</li>
 							<li><code>home.html</code> - ARアプリまたは、お気に入りページに遷移するナビゲーションページ</li>
 							<li><code>favorite.html</code> - お気に入りをリストするページ</li>
 							<li><code>navigation.html</code> - お気に入り場所へナビゲーションするページ</li>
@@ -118,6 +119,8 @@
 							<li><code>translate.js</code> - 翻訳を行うJavaScript</li>
 							<li><code>favorite-list.js</code> - Firebaseと連携してリストをGETするJavaScript</li>
 							<li><code>navigation-to-favorite.js</code> - Googleマップにリダイレクトするか、地図の埋め込みを行うJavaScript</li>
+							<li><code>signup.js</code> - ユーザ登録の処理を行うJavaScript</li>
+							<li><code>login.js</code> - ユーザログインの処理を行うJavaScript</li>
 						</ul>
 					</li>
 					<li><code>tests/</code>
@@ -142,10 +145,63 @@
 		</ul>
 		</p>
 
-
+		<div class="belt">
+			<h3><a name="BD01">HTMLとJavaScriptの関係</a></h3>
+		</div>
+		<ul>
+			<li><code>index.html</code>
+				<ul>
+					<li><code>js/main.js</code></li>
+					<li><code>js/translate.js</code></li>
+					<li><code>js/signup.js</code></li> <!-- もしindex.htmlにサインアップの機能がある場合 -->
+					<li><code>js/login.js</code></li> <!-- もしindex.htmlにログインの機能がある場合 -->
+				</ul>
+			</li>
+			<li><code>ar-app.html</code>
+				<ul>
+					<li><code>js/main.js</code></li>
+					<li><code>js/translate.js</code></li>
+					<li><code>js/ar-app.js</code></li>
+				</ul>
+			</li>
+			<li><code>signup.html</code>
+				<ul>
+					<li><code>js/main.js</code></li>
+					<li><code>js/translate.js</code></li>
+					<li><code>js/signup.js</code></li>
+				</ul>
+			</li>
+			<li><code>login.html</code>
+				<ul>
+					<li><code>js/main.js</code></li>
+					<li><code>js/translate.js</code></li>
+					<li><code>js/login.js</code></li>
+				</ul>
+			</li>
+			<li><code>home.html</code>
+				<ul>
+					<li><code>js/main.js</code></li>
+					<li><code>js/translate.js</code></li>
+				</ul>
+			</li>
+			<li><code>favorite.html</code>
+				<ul>
+					<li><code>js/main.js</code></li>
+					<li><code>js/translate.js</code></li>
+					<li><code>js/favorite-list.js</code></li>
+				</ul>
+			</li>
+			<li><code>navigation.html</code>
+				<ul>
+					<li><code>js/main.js</code></li>
+					<li><code>js/translate.js</code></li>
+					<li><code>js/navigation-to-favorite.js</code></li>
+				</ul>
+			</li>
+		</ul>
 
 		<div class="belt">
-			<h3><a name="BD01">データベーススキーマ & ER図</a></h3>
+			<h3><a name="BD02">データベーススキーマ</a></h3>
 			<h6>Firebaseを想定すると楽</h6>
 		</div>
 		<strong>Users Table</strong>
@@ -209,7 +265,7 @@
 		</table>
 
 		<div class="belt">
-			<h3><a name="BD02">シーケンス図</a></h3>
+			<h3><a name="BD03">シーケンス図</a></h3>
 		</div>
 		<table summary="table">
 			<tbody>
@@ -261,7 +317,7 @@
 		</table>
 
 		<div class="belt">
-			<h3><a name="BD03">ワイヤーフレーム</a></h3>
+			<h3><a name="BD04">ワイヤーフレーム</a></h3>
 		</div>
 		ここにfigmaで作ったワイヤーフレームや外観図を置く
 		<table summary="table">
